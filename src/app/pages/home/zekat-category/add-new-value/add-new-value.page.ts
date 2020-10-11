@@ -79,7 +79,7 @@ export class AddNewValuePage implements OnInit {
         insertedValue = form.value.d_val_1;
         insertedValueForBase = (form.value.d_val_1 * 1 / this.allRates.rates.rates[form.value.currency_type] *
                                 this.allRates.rates.rates[this.currentBase]).toFixed(2);
-        message = `<ion-label>${(+insertedValueForBase * 0.025).toFixed(2)}  ${this.translatedMoneyCurrencyName}</ion-label>`;
+        message = `<ion-label>${(+insertedValueForBase * 0.025).toFixed(2)}  ${this.getMoneyCurrencyName(this.currentBase)}</ion-label>`;
         value = (+insertedValueForBase * 0.025).toFixed(2);
       }
       else {

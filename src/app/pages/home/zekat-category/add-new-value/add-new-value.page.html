@@ -121,10 +121,10 @@
       </ion-item>
       <ion-button expand='block' *ngIf = "catEl?.id === 7"  (click)="openCharityModal(getFitirValue(currentCountry) * form.value.fitir_member)" [disabled] = "getFitirValue(currentCountry) * form.value.fitir_member <= 0" >التوجه الى طرق الدفع</ion-button>
     </ion-list>
-    <ion-button *ngIf='catEl?.id == 1' expand='block' type="submit" [disabled]=" (+form.value.d_val_1 + +form.value.d_val_2*0.875 + +form.value.d_val_3*0.75) == 0">احسب</ion-button>
-    <ion-button *ngIf='catEl?.id == 4 || catEl?.id == 2' expand='block' type="submit" [disabled]="!form.value.d_val_1">احسب</ion-button>
-    <ion-button *ngIf='catEl?.id == 3' expand='block' type="submit" [disabled]="!form.value.d_val_1 || !form.value.name">احسب</ion-button>
-    <ion-button *ngIf='catEl?.id == 5 || catEl?.id == 6' expand='block' type='submit' [disabled]="(+form.value.d_val_1 * +form.value.d_val_2 == 0) || !form.value.name">احسب</ion-button>
+    <ion-button *ngIf='catEl?.id == 1' expand='block' type="submit" [disabled]=" (+form.value.d_val_1 + +form.value.d_val_2*0.875 + +form.value.d_val_3*0.75) == 0 || !(+form.value.d_val_1 + +form.value.d_val_2*0.875 + +form.value.d_val_3*0.75) || (+form.value.d_val_1 + +form.value.d_val_2*0.875 + +form.value.d_val_3*0.75) < 0">احسب</ion-button>
+    <ion-button *ngIf='catEl?.id == 4 || catEl?.id == 2' expand='block' type="submit" [disabled]="!form.value.d_val_1 || form.value.d_val_1 < 0">احسب</ion-button>
+    <ion-button *ngIf='catEl?.id == 3' expand='block' type="submit" [disabled]="!form.value.d_val_1 || !form.value.name || form.value.d_val_1 < 0">احسب</ion-button>
+    <ion-button *ngIf='catEl?.id == 5 || catEl?.id == 6' expand='block' type='submit' [disabled]="(+form.value.d_val_1 * +form.value.d_val_2 == 0) || !form.value.name || +form.value.d_val_1 * +form.value.d_val_2 < 0">احسب</ion-button>
   </form>
 
 </ion-content>

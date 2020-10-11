@@ -18,6 +18,7 @@ dbInit() {
         location: 'default'
       })
         .then((db: SQLiteObject) => {
+            console.log("DB Created")
          this.database = db;
          db.executeSql(`create table IF NOT EXISTS 'operations' (
                id INTEGER PRIMARY KEY AUTOINCREMENT,

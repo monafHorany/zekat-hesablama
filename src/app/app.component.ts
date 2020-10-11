@@ -18,19 +18,22 @@ import { Plugins } from '@capacitor/core';
 export class AppComponent {
 
   constructor(
-    private platform: Platform, private splashScreen: SplashScreen,
-    private statusBar: StatusBar, private db: DbServiceService,
-    private screenOrientation: ScreenOrientation, private  categoryService: Category_operationsService)
+    private platform: Platform, 
+    private db: DbServiceService,
+    private  categoryService: Category_operationsService)
     {
       this.categoryService.getGlobalRates();
       this.categoryService.getAllCurrencies();
       this.categoryService.getAllCountries();
-      this.categoryService.getSettingObject();
+      this.categoryService.getSettingObject().then(_=>{
+        console.log("setting gotten")
+      });
+
       this.initializeApp();
   }
 
   initializeApp() {
-    if (environment.is_local){
+    if (this.platform.is('cordova') || this.platform.is('capacitor')) {
       this.platform.ready().then(() => {
         this.db.dbInit();
       });
