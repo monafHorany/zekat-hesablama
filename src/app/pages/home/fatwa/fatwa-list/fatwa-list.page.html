@@ -9,8 +9,18 @@
 
 <ion-content>
 
+  <ion-list>
+      <ion-item *ngFor="let fatwaItem of fatwa" >
+        <ion-label style="padding: 15px;" routerLink="fatwa-detail/{{fatwaItem.id}}">
+          {{fatwaItem.title}}
+        </ion-label>
+      </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- 
   <ion-list *ngIf = "id == 1" >
-    <ion-item style="padding: 15px;" routerLink="fatwa-detail/1">
+    <ion-item style="padding: 15px;" c>
     <ion-label>
       حكم شراء المرأة الفقيرة للذهب من أموال الزكاة
     </ion-label>
@@ -164,6 +174,5 @@
         حكم بناء المساجد من الزكاة
       </ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
-</ion-content>

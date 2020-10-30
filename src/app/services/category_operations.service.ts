@@ -93,4 +93,12 @@ export class Category_operationsService {
       this.countryCode = setting.country;
     }
   }
+
+
+  getFatwaByCategoryId(id) {
+    return this.http.get(environment.base_url + '/api/v1/fatwa/allfatwaByCategory/'+id)
+  }
+  getFatwaById(id) {
+    return this.http.get(environment.base_url + '/api/v1/fatwa/fatwaById/'+id)
+  }
 }

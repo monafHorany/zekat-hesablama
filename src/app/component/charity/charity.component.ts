@@ -24,7 +24,7 @@ singleCharity: Charity;
 locenvironment: { production: boolean; is_local: boolean; base_url: string; };
 
   ngOnInit() {
-    this.locenvironment = environment;
+    this.locenvironment = environment;8
     this.charities = this.categoryService.charities;
     console.log(this.charities);
     for (let ch = 0 ; ch < this.charities.length; ch++){
